@@ -4,27 +4,13 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
-app.use(express.json()); // Enable JSON request body parsing
+app.use(express.json()); 
 
-// Define a route for making the API request
-app.post('/make-api-request', async (req, res) => {
+app.post('/request', async (req, res) => {
   try {
-    const apiUrl = 'https://example.com'; // Replace with your API URL
-    // const body = {
-    //     'name':'Shubhanshu',
-    //     'registration'
-    // }
-    const headers = {
-      'User-Agent': 'Your User Agent', // Your user agent
-      'Authorization': 'Bearer YourAccessToken', // Your authorization header if needed
-      // Add other headers as needed
-    };
+    const base = 'url'; 
 
-    const dataToSend = body; // JSON data to send in the API request
-
-    const response = await axios.post(apiUrl, dataToSend, {
-      headers: headers,
-    });
+    const response = await axios.post(base);
 
     res.status(response.status).json(response.data);
   } catch (error) {
@@ -36,3 +22,32 @@ app.post('/make-api-request', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const body = {
+    //     'name':'Shubhanshu',
+    //     'registration'
+    // }
+    // const headers = {
+    //   'User-Agent': 'Your User Agent', // Your user agent
+    //   'Authorization': 'Bearer YourAccessToken', // Your authorization header if needed
+    //   // Add other headers as needed
+    // };
+
+    // const dataToSend = body; // JSON data to send in the API request
